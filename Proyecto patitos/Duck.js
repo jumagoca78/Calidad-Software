@@ -28,3 +28,4 @@ export class Duck {
     return "Soy un pato genérico.";
   }
 }
+
