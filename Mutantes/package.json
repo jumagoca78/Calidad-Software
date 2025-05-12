@@ -1,0 +1,8 @@
+{
+  "name": "student-form-jest",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest",
+    "mutate": "stryker run"
+  }
+}
