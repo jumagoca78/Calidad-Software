@@ -83,7 +83,7 @@ module.exports = {
 
 ---
 
-## 🚀 5. Ejecutar pruebas
+##  5. Ejecutar pruebas
 
 ### Pruebas unitarias con Jest
 
