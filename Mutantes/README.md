@@ -118,8 +118,5 @@ Verás los mutantes que fueron:
 
 ---
 
-## Ideal para actividades en EduScrum
 
-- Usa este ejercicio en sprints para comparar cobertura real vs cobertura efectiva.
-- Asigna a cada equipo la tarea de mejorar pruebas que dejen mutantes sobrevivientes.
 
