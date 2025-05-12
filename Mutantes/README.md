@@ -1,13 +1,13 @@
-# Testing de Mutantes con Jest + Stryker Mutator
+# 🧪 Testing de Mutantes con Jest + Stryker Mutator (Versión Funcional)
 
-Este proyecto demuestra cómo realizar pruebas unitarias y de mutación para funciones JavaScript puras usando **Jest** y **Stryker Mutator**. Se enfoca en validar una función que verifica los datos de un alumno.
+Este proyecto permite validar funciones JavaScript puras usando pruebas unitarias con **Jest** y pruebas de mutantes con **Stryker Mutator**, compatible sin configuración avanzada.
 
 ---
 
-##  Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```
-student-form-jest/
+student-form-jest-fixed/
 ├── public/
 │   └── validation.js
 ├── __tests__/
@@ -19,24 +19,26 @@ student-form-jest/
 
 ---
 
-## 1. Lógica de validación
+## ✅ 1. Lógica de validación
 
-`public/validation.js`
+📁 `public/validation.js`
 
 ```javascript
-export function validarAlumno(name, age, email) {
+function validarAlumno(name, age, email) {
   return name !== '' && age > 0 && email.includes('@');
 }
+
+module.exports = { validarAlumno };
 ```
 
 ---
 
-## 2. Pruebas unitarias con Jest
+## 🧪 2. Pruebas unitarias con Jest
 
-`__tests__/validation.test.js`
+📁 `__tests__/validation.test.js`
 
 ```javascript
-import { validarAlumno } from '../public/validation';
+const { validarAlumno } = require('../public/validation');
 
 test('valida alumno con datos correctos', () => {
   expect(validarAlumno('Ana', 20, 'ana@correo.com')).toBe(true);
@@ -49,54 +51,47 @@ test('detecta alumno con datos incorrectos', () => {
 
 ---
 
-## 3. Instalación y configuración
+## ⚙️ 3. Instalación y configuración
 
-### Paso 1: Inicializar el proyecto
+### Paso 1: Instalar dependencias
 
 ```bash
-npm init -y
+npm install
 ```
 
-### Paso 2: Instalar Jest y Stryker
+(Si usas por primera vez)
 
 ```bash
 npm install jest --save-dev
-npx jest --init
-npm install @stryker-mutator/core @stryker-mutator/jest-runner @stryker-mutator/javascript-mutator --save-dev
+npm install @stryker-mutator/core @stryker-mutator/jest-runner --save-dev
 ```
-
-En la configuración de Jest, elige:
-- ❯ Use Babel? → No
-- ❯ Use TypeScript? → No
-- ❯ Test environment → node
-- ❯ Automatically clear mocks → Yes
 
 ---
 
-## 4. Configurar Stryker
+## 📄 4. Configuración de Stryker
 
-`stryker.conf.js`
+📁 `stryker.conf.js`
 
 ```javascript
 module.exports = {
   mutate: ['public/validation.js'],
   testRunner: 'jest',
   reporters: ['html', 'clear-text', 'progress'],
-  coverageAnalysis: 'off',
+  coverageAnalysis: 'off'
 };
 ```
 
 ---
 
-## 5. Ejecutar pruebas
+## 🚀 5. Ejecutar pruebas
 
-### Ejecutar Jest (unitarias)
+### Pruebas unitarias con Jest
 
 ```bash
 npx jest
 ```
 
-### Ejecutar Stryker Mutator
+### Mutation testing con Stryker
 
 ```bash
 npx stryker run
@@ -104,19 +99,17 @@ npx stryker run
 
 ---
 
-## 6. Ver resultados
+## 📊 6. Ver resultados
 
-Abre el archivo generado por Stryker:
+Abre el reporte generado por Stryker:
 
 ```
 reports/mutation/html/index.html
 ```
 
-Verás los mutantes que fueron:
-- "Matados" (detectados por tus pruebas)
-- "Sobrevivientes" (no detectados, mejora necesaria)
-
 ---
 
+## 🧠 Recomendación para EduScrum
 
-
+- Revisar qué mutantes sobreviven y mejorar pruebas en el siguiente Sprint.
+- Usar este enfoque para tareas de calidad continua y refactorización con propósito.

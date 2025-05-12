@@ -1,4 +1,4 @@
-import { validarAlumno } from '../public/validation';
+const { validarAlumno } = require('../public/validation');
 
 test('valida alumno con datos correctos', () => {
   expect(validarAlumno('Ana', 20, 'ana@correo.com')).toBe(true);
