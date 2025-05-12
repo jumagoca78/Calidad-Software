@@ -1,5 +1,5 @@
 {
-  "name": "student-form-jest-fixed",
+  "name": "student-form-jest-nobabel",
   "version": "1.0.0",
   "scripts": {
     "test": "jest",

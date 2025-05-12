@@ -1,13 +1,13 @@
-# Testing de Mutantes con Jest + Stryker Mutator (Versión Funcional)
+# Testing de Mutantes con Jest + Stryker Mutator (Sin Babel)
 
-Este proyecto permite validar funciones JavaScript puras usando pruebas unitarias con **Jest** y pruebas de mutantes con **Stryker Mutator**, compatible sin configuración avanzada.
+Este proyecto permite validar funciones JavaScript puras usando pruebas unitarias con **Jest** y pruebas de mutantes con **Stryker Mutator**, sin dependencias innecesarias como Babel.
 
 ---
 
 ## Estructura del Proyecto
 
 ```
-student-form-jest-fixed/
+student-form-jest-nobabel/
 ├── public/
 │   └── validation.js
 ├── __tests__/
@@ -19,9 +19,9 @@ student-form-jest-fixed/
 
 ---
 
-##  1. Lógica de validación
+## 1. Lógica de validación
 
- `public/validation.js`
+`public/validation.js`
 
 ```javascript
 function validarAlumno(name, age, email) {
@@ -33,9 +33,9 @@ module.exports = { validarAlumno };
 
 ---
 
-##  2. Pruebas unitarias con Jest
+## 2. Pruebas unitarias con Jest
 
- `__tests__/validation.test.js`
+`__tests__/validation.test.js`
 
 ```javascript
 const { validarAlumno } = require('../public/validation');
@@ -59,18 +59,17 @@ test('detecta alumno con datos incorrectos', () => {
 npm install
 ```
 
-(Si usas por primera vez)
+(Si es nuevo)
 
 ```bash
-npm install jest --save-dev
-npm install @stryker-mutator/core @stryker-mutator/jest-runner --save-dev
+npm install jest @stryker-mutator/core @stryker-mutator/jest-runner --save-dev
 ```
 
 ---
 
-##  4. Configuración de Stryker
+## 4. Configuración de Stryker
 
- `stryker.conf.js`
+`stryker.conf.js`
 
 ```javascript
 module.exports = {
@@ -83,23 +82,23 @@ module.exports = {
 
 ---
 
-##  5. Ejecutar pruebas
+## 5. Ejecutar pruebas
 
 ### Pruebas unitarias con Jest
 
 ```bash
-npx jest
+npm test
 ```
 
 ### Mutation testing con Stryker
 
 ```bash
-npx stryker run
+npm run mutate
 ```
 
 ---
 
-##  6. Ver resultados
+## 6. Ver resultados
 
 Abre el reporte generado por Stryker:
 
@@ -109,7 +108,8 @@ reports/mutation/html/index.html
 
 ---
 
-##  Recomendación para EduScrum
+## Para uso con EduScrum
 
-- Revisar qué mutantes sobreviven y mejorar pruebas en el siguiente Sprint.
-- Usar este enfoque para tareas de calidad continua y refactorización con propósito.
+- Evalúa cuántos mutantes sobrevivieron y mejora tus pruebas.
+- Usa el informe en la retrospectiva para identificar debilidades del test.
+
