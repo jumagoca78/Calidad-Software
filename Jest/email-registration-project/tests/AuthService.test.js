@@ -1,9 +1,11 @@
 // AuthService.test.js
-const AuthService = require('./AuthService');
+const AuthService = require('../src/AuthService');
 
 test("devuelve true si el email está registrado", () => {
   const stubRepository = {
-    findUserByEmail: (email) => ({ email })
+    findUserByEmail: (email) => {
+      return { email }; // Simula que encontró al usuario
+    }
   };
 
   const authService = new AuthService(stubRepository);
