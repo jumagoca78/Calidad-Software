@@ -20,6 +20,8 @@ class UserRegistration {
 }
 
 
+
+
 // Exportamos las clases para que puedan ser utilizadas en otros módulos
 // Esto permite que las pruebas unitarias importen estas clases y las utilicen para crear instancias de EmailService y UserRegistration
 // Esto es útil para la inyección de dependencias, permitiendo que se pase un servicio de correo simulado durante las pruebas

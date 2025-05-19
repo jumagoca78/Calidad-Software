@@ -22,3 +22,4 @@ test("envía correo tras registrar usuario", () => {
 
   expect(mockEmailService.send).toHaveBeenCalledWith("test@example.com", "Welcome!");
 });
+
